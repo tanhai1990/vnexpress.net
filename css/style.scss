@@ -1,0 +1,106 @@
+#formLogin{
+    padding: 3px;
+    h3{
+        text-align: center;
+        font-family: Time New Romance;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    label{
+        font-weight: bold;
+        font-style: italic;
+    }
+    .form-control1{
+        margin: 5px 0;
+    }
+}
+
+#FormExit{
+    background-color: #f4f4f4;
+    color: red;
+    text-align: center;
+    h3{
+        text-align: center;
+    }
+}
+
+/* Trang Admin */
+
+#PageAdmin{
+    padding: 5px;
+    color: #ffffff;
+    background-color: #66d9ee;
+    h3{
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        font-family: time new roman;
+    }
+    p{
+        text-align: right;
+        color: #080808;
+    }
+    .col-sm-2{
+        a{
+            font-size: 16px;
+            font-weight: bold;
+            color: #080808;
+            font-family: time new roman;
+            text-decoration: none;
+            .glyphicon{
+                font-size: 20px;
+                color: #3124dd;
+            }
+        }
+    }
+}
+
+/* Danh sach the loai */
+#ListTheLoai{
+    h3{
+        font-family: time new roman;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+/* Thêm thể loại */
+#ThemTheLoai{
+    h3{
+        font-family: time new roman;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        text-align: center;
+    }
+    .row{
+        .col-sm-4{
+            form{
+                font-family: time new roman;
+                font-size: 16px;
+                padding: 5px;
+                border: 1px solid black;
+            }
+        }
+    }
+}
+
+/* Danh sach loai tin */
+#ListLoaiTin{
+    h3{
+        font-family: time new roman;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .row{
+        .col-sm-10{
+            .table{
+                thead{
+                    background-color: #d3d3d3;
+                }
+            }
+        }
+    }
+}
