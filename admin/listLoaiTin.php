@@ -45,7 +45,7 @@ $dt = new Database;
                             <th style="width: 10%">Thứ tự</th>
                             <th style="width: 10%">Ẩn Hiện</th>
                             <th style="width: 10%">ID thể loại</th>
-                            <th style="width: 12%; text-align: center;"><a href="./themTheLoai.php">Thêm</a></th>
+                            <th style="width: 12%; text-align: center;"><a href="./themLoaiTin.php">Thêm</a></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,7 +95,6 @@ $dt = new Database;
         $SoTrang = ceil($tong/$SoLuong);
     }
     //Xac dinh trang hien tai
-    if
 
     ?>
 </body>
