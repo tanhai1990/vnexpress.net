@@ -30,43 +30,50 @@ $dt = new Database;
         </div>
     </div>
 
-    <!-- Danh sach the loai -->
-    <div id="ListLoaiTin" class="container">
-        <h3>DANH SÁCH LOẠI TIN</h3>
+    <!-- Danh sach tin tức -->
+    <div id="ListTinTuc" class="container">
+        <h3>DANH SÁCH TIN TỨC</h3>
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10">
+            <div class="col-sm-12">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th style="width: 10%">STT</th>
-                            <th style="width: 28%">Tên Loại Tin</th>
-                            <th style="width: 20%">Tên không dấu</th>
-                            <th style="width: 10%">Thứ tự</th>
-                            <th style="width: 10%">Ẩn Hiện</th>
-                            <th style="width: 10%">ID thể loại</th>
+                            <th style="width: 5%">STT</th>
+                            <th style="width: 10%">Tiêu Đề</th>
+                            <th style="width: 18%">Tóm tắt</th>
+                            <th style="width: 10%">Url Hình</th>
+                            <th style="width: 5%">ID User</th>
+                            <th style="width: 5%">IDTL</th>
+                            <th style="width: 5%">IDLT</th>
+                            <th style="width: 10%">Số lần xem</th>
+                            <th style="width: 10%">Tin nổi bật</th>
+                            <th style="width: 10%">Ẩn hiện</th>
                             <th style="width: 12%; text-align: center;"><a href="./themLoaiTin.php">Thêm</a></th>
                         </tr>
                     </thead>
                     <tbody>
                     <!-- Danh sach the loai -->
                     <?php
-                    $i = 0;
+                    $i=0;
                     $dt->Select("
-                        SELECT * FROM loaitin
+                        SELECT * FROM tin
+                        ORDER BY idTin DESC
                     ");
-                    while($rowLoaiTin = $dt->Fetch()){      
+                    while($rowTin = $dt->Fetch()){
                         $i++;
                     ?>
                         <tr>
                             <td><?php echo $i; ?></td>
-                            <td><?php echo $rowLoaiTin['Ten']; ?></td>
-                            <td><?php echo $rowLoaiTin['Ten_KhongDau']; ?></td>
-                            <td><?php echo $rowLoaiTin['ThuTu']; ?></td>
-                            <td><?php echo $rowLoaiTin['AnHien']; ?></td>
-                            <td><?php echo $rowLoaiTin['idTL']; ?></td>
-                            <td style="font-weight: bold;text-align: center;"> <a href="./xoaLoaiTin.php?idLT=<?php echo $rowLoaiTin['idLT']; ?>">Xóa</a> | 
-                            <a href="./suaLoaiTin.php?idLT=<?php echo $rowLoaiTin['idLT']; ?>">Sửa</a></td>
+                            <td><?php echo $rowTin["TieuDe"]; ?></td>
+                            <td><?php echo $rowTin['TomTat']; ?></td>
+                            <td><img src="../upload/tintuc/<?php echo $rowTin['urlHinh']; ?>" alt="" width="152" height="96"></td>
+                            <td><?php echo $rowTin['idUser']; ?></td>
+                            <td><?php echo $rowTin['idTL']; ?></td>
+                            <td><?php echo $rowTin['idLT']; ?></td>
+                            <td><?php echo $rowTin['SoLanXem']; ?></td>
+                            <td><?php echo $rowTin['TinNoiBat']; ?></td>
+                            <td><?php echo $rowTin['AnHien']; ?></td>
+                            <td style="font-weight: bold;text-align: center;"> <a href="">Xóa</a> | <a href="">Sửa</a></td>
                         </tr>
                     <?php
                     }
@@ -76,28 +83,7 @@ $dt = new Database;
                 </table>
 
             </div>
-            <div class="col-sm-1"></div>
         </div>
     </div>
-    <!-- End Danh sach the loai -->
-    <?php
-    //Số bản ghi 1 trang
-    $SoLuong = 20;
-    //Tổng số bản ghi
-    $dt->Select("
-        SELECT COUNT(idLT) AS tong
-        FROM loaitin
-    ");
-    $row = $dt->Fetch();
-    $tong = $row['tong'];
-    //Xác định số lượng trang
-    if($tong>$SoLuong){
-        $SoTrang = ceil($tong/$SoLuong);
-    }
-    //Xac dinh trang hien tai
-    for($i=1;$i<=$SoTrang;$i++){
-        echo $i." ";
-    }
-    ?>
 </body>
 </html>

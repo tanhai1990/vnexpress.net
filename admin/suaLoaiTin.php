@@ -8,7 +8,9 @@ $dt = new Database;
 ?>
 <!-- Sua thể loại -->
 <?php
-
+if(isset($_GET["idLT"])){
+    $idLT = $_GET["idLT"];
+}
 
 if(isset($_POST["btnSua"])){
   
@@ -41,7 +43,7 @@ if(isset($_POST["btnSua"])){
     </div>
 
     <div id="SuaLoaiTin" class="container">
-        <h3>CHỈNH SỬA THÔNG TIN THỂ LOẠI</h3>
+        <h3>CHỈNH SỬA THÔNG TIN LOẠI TIN</h3>
         <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
@@ -61,23 +63,31 @@ if(isset($_POST["btnSua"])){
                     <div class="form-group">
                         <label for="CmbTheLoai">Tên thể loại:</label>
                         <select name="CmbTheLoai" id="CmbTheLoai" class="form-control">
-                            <option value="1">Volvo</option>
-                            <option value="1">Volvo</option>
-                            <option value="1">Volvo</option>
-                            <option value="1">Volvo</option>
-                            <option value="1">Volvo</option>
+                        <!-- Danh sach the loai -->
+                        <?php
+                        $dt->Select("
+                            SELECT * FROM theloai
+                        ");
+                        while($rowTheLoai = $dt->Fetch()){
+                        ?>
+                            <option <?php if($rowTheLoai["idTL"]==$rowLoaiTin["idTL"]) echo "selected='selected'"; ?> 
+                            value="<?php echo $rowTheLoai['idTL'] ?>"><?php echo $rowTheLoai['TenTL'] ?></option>
+                        <!-- End Danh sach the loai -->
+                        <?php
+                        }
+                        ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="txtThuTu">Thứ tự:</label>
-                        <input type="text" class="form-control" name="txtThuTu" placeholder="Nhập thứ tự" value="<?php echo $rowTheLoai['ThuTu'];?>">
+                        <input type="text" class="form-control" name="txtThuTu" placeholder="Nhập thứ tự" value="<?php echo $rowLoaiTin['ThuTu'];?>">
                     </div>
                     <div class="form-group">
                         <label for="">Ẩn Hiện:</label>
                         <label for="radAnHien">Ẩn:</label>
-                        <input <?php if($rowTheLoai['AnHien']==0) echo "checked='checked'";?> type="radio" name="radAnHien" value="0">
+                        <input <?php if($rowLoaiTin['AnHien']==0) echo "checked='checked'";?> type="radio" name="radAnHien" value="0">
                         <label for="radHien">Hiện:</label>
-                        <input <?php if($rowTheLoai['AnHien']==1) echo "checked='checked'";?> type="radio" name="radAnHien" value="1">
+                        <input <?php if($rowLoaiTin['AnHien']==1) echo "checked='checked'";?> type="radio" name="radAnHien" value="1">
                     </div>
                     <button type="submit" class="btn btn-primary" name="btnSua" style="width: 100px">Sửa</button>
                     <button type="submit" class="btn btn-primary" name="btnThoat" style="width: 100px">Thoát</button>
