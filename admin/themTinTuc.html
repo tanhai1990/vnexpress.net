@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div id="PageAdmin" class="container">
+        <h3>TRANG QUẢN TRỊ</h3>
+        <p>Hello <strong>admin</strong></p>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2"><a href="./index.php"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></div>
+            <div class="col-sm-2"><a href="./listTheLoai.php"><span class="glyphicon glyphicon-paste"></span> Quản lý thể loại</a></div>
+            <div class="col-sm-2"><a href="./listLoaiTin.php"><span class="glyphicon glyphicon-education"></span> Quản lý loại tin</a></div>
+            <div class="col-sm-2"><a href="./listTinTuc.php"><span class="glyphicon glyphicon-book"></span> Quản lý tin tức</a></div>
+            <div class="col-sm-2"><a href="./listQuangCao.php"><span class="glyphicon glyphicon-calendar"></span> Quản lý quảng cáo</a></div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+
+    <!-- Thêm tin tức -->
+    <div id="ThemTinTuc" class="container">
+        <h2>THÊM TIN TỨC</h2>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="txtTieuDe">Tiêu Đề:</label>
+                        <input type="text" class="form-control" placeholder="Nhập tiêu đề">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTomTat">Tóm tắt:</label>
+                        <textarea name="txtTomTat" id="" cols="30" rows="3" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="urlHinh">urlHinh:</label>
+                        <input class="form-control" type="text" placeholder="Nhập urlHinh">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtNoiDung">Nội Dung:</label>
+                        <textarea name="txtTomTat" id="" cols="30" rows="3" class="form-control"></textarea>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+
+    </div>
+    <!-- End Thêm tin tức -->
+</body>
+</html>
